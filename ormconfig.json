@@ -1,0 +1,7 @@
+{
+  "name": "default",
+  "type": "sqlite",
+  "database": "./data/example.sq3",
+  "autoSchemaSync": true,
+  "entities": ["src/entities/*.ts"]
+}

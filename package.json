@@ -1,0 +1,73 @@
+{
+  "name": "typecrm-test",
+  "version": "0.0.0",
+  "description": "",
+  "main": "./lib/index.js",
+  "module": "./lib-es6/index.js",
+  "types": "./lib/index.d.ts",
+  "keywords": [],
+  "author": "Luc Patiny",
+  "license": "MIT",
+  "files": [
+    "lib",
+    "lib-es6"
+  ],
+  "scripts": {
+    "clean": "rimraf lib lib-es6",
+    "eslint": "eslint src --ext ts --cache",
+    "eslint-fix": "npm run eslint -- --fix",
+    "prepublishOnly": "npm run tsc",
+    "test": "npm run test-only && npm run eslint",
+    "test-only": "jest",
+    "test-coverage": "npm run test-only --coverage",
+    "tsc": "npm run clean && npm run tsc-es5 && npm run tsc-es6",
+    "tsc-es5": "tsc",
+    "tsc-es6": "tsc --project tsconfig.es6.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cheminfo/typecrm-test.git"
+  },
+  "bugs": {
+    "url": "https://github.com/cheminfo/typecrm-test/issues"
+  },
+  "homepage": "https://github.com/cheminfo/typecrm-test#readme",
+  "jest": {
+    "testEnvironment": "node",
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ]
+  },
+  "devDependencies": {
+    "@types/jest": "^24.0.12",
+    "eslint": "^5.16.0",
+    "eslint-config-cheminfo": "^1.20.1",
+    "eslint-config-cheminfo-typescript": "^3.0.0",
+    "eslint-plugin-import": "^2.17.2",
+    "eslint-plugin-jest": "^22.5.1",
+    "eslint-plugin-typescript": "^0.14.0",
+    "jest": "^24.8.0",
+    "rimraf": "^2.6.3",
+    "ts-jest": "^24.0.2",
+    "ts-node": "^8.1.0",
+    "typescript": "^3.4.5",
+    "typescript-eslint-parser": "^22.0.0"
+  },
+  "dependencies": {
+    "express": "^4.17.0",
+    "express-graphql": "^0.8.0",
+    "graphql": "^14.3.0",
+    "sqlite": "^3.0.3",
+    "sqlite3": "^4.0.8",
+    "typeorm": "^0.2.17"
+  }
+}
